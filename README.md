@@ -1,11 +1,12 @@
 # Terraform Infrastructure Setup
 
-Terraform configurations for managing infrastructure resources. This document provides an overview of the directory structure and the purpose of each component within the project "infra/terraform/src" .
-To start with Terraform we do need to have some initial setup like s3 bucket, dynamodb table, secretmanager and the values of required variables which will be passed through github workflow.
+This document outlines the Terraform configurations used for managing infrastructure resources. It provides an overview of the directory structure and the purpose of each component within the "infra/terraform/src" project.
 
-The initial setup will be checked through the github workflow from Step "Run Terraform Pre-Check Script" mentioned in .github/workflows/infra.yaml 
+To begin using Terraform, some initial setup is required, including an S3 bucket, a DynamoDB table, Secret Manager, and the values for the necessary variables, which will be passed through the GitHub workflow.
 
-The below variables values should be in hand during first time run on the pipeline
+The initial setup will be validated through the GitHub workflow, starting from the "Run Terraform Pre-Check Script" step, as defined in the .github/workflows/infra.yaml file.
+
+The following variable values should be available during the first run of the pipeline.
 
 | Key                                      | Type                | Example Values                                             |
 |------------------------------------------|---------------------|------------------------------------------------------------|
