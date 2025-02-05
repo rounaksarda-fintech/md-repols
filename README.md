@@ -1,6 +1,30 @@
 # Terraform Infrastructure Setup
 
 Terraform configurations for managing infrastructure resources. This document provides an overview of the directory structure and the purpose of each component within the project "infra/terraform/src" .
+To start with Terraform we do need to have some initial setup like s3 bucket, dynamodb table, secretmanager and the values of required variables which will be passed through github workflow.
+
+The initial setup will be checked through the github workflow from Step "Run Terraform Pre-Check Script" mentioned in .github/workflows/infra.yaml 
+
+The below variables values should be in hand during first time run on the pipeline
+
+| Key                                      | Type                | Example Values                                             |
+|------------------------------------------|---------------------|------------------------------------------------------------|
+| `project`                                | String              | `lscore`                                                   |
+| `env`                                    | String              | `""`                                                       |
+| `region`                                 | String              | `"us-east-1"`                                              |
+| `aws_account_id`                         | String              | `""`                                                       |
+| `vpc_cidr`                               | String              | `"172.32.0.0/16"`                                          |
+| `private_subnet_cidrs`                   | List of Strings     | `["172.32.1.0/24","172.32.2.0/24","172.32.3.0/24"]`        |
+| `public_subnet_cidrs`                    | List of Strings     | `["172.32.4.0/24","172.32.5.0/24","172.32.6.0/24"]`        |
+| `availability_zones`                     | List of Strings     | `["us-east-1a", "us-east-1b", "us-east-1c"]`               |
+| `ecr_repositories`                       | List of Strings     | `["muni/bondpoint_trading", "muni/tmc_trading", ...]`      |
+| `rds_db_name`                            | String              | `"lscoreuat"`                                              |
+| `rds_db_cluster_instance_class`          | String              | `""`                                                       |
+| `rds_engine`                             | String              | `"postgres"`                                               |
+| `rds_engine_version`                     | String              | `"17.1"`                                                   |
+| `rds_cluster_parameter_group_family`     | String              | `"postgres17"`                                             |
+| `backup_retention_period`                | Integer             | `7`                                                        |
+
 
 ## Directory Structure
 
